@@ -16,9 +16,8 @@ Player progression (completed levels) is saved locally so that it is preserved b
 
 The game is deployed as a Flutter web application and can be played in a modern web browser at:
 
-**URL:** `https://<your-deployment-url-here>`
+**URL:** https://alex20m.github.io/maze_game/
 
-> Replace the placeholder above with the actual URL of your deployed web build (for example, a GitHub Pages, university, or other hosting URL).
 
 ## How to play
 
