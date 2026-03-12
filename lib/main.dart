@@ -34,6 +34,8 @@ class MazeGameApp extends StatelessWidget {
         GameScreen.routeName: (context) => _MaxWidthLayout(child: const GameScreen()),
         ResultScreen.routeName: (context) =>
             _MaxWidthLayout(child: ResultScreen(prefs: prefs)),
+        HowToPlayScreen.routeName: (context) =>
+            const _MaxWidthLayout(child: HowToPlayScreen()),
       },
     );
   }
@@ -98,6 +100,81 @@ class StartScreen extends StatelessWidget {
                   Navigator.of(context).pushNamed(LevelSelectionScreen.routeName);
                 },
                 child: const Text('Start'),
+              ),
+              const SizedBox(height: 12),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(HowToPlayScreen.routeName);
+                },
+                child: const Text('How to play'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class HowToPlayScreen extends StatelessWidget {
+  const HowToPlayScreen({super.key});
+
+  static const routeName = '/how-to-play';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('How to play'),
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: ListView(
+            children: [
+              Text(
+                'Goal',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Guide the orange ball from the start side of the maze to the exit area '
+                'without touching the walls.',
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Controls',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Press and drag anywhere on the screen to control the ball.\n'
+                '- The direction of your drag sets the direction of movement.\n'
+                '- The distance from where you started dragging controls how fast the ball moves.\n'
+                '- Lift your finger (or mouse button) to stop the ball.',
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Levels and progression',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'From the level selection screen you can choose any available level.\n'
+                'When you complete a level, it will be marked as completed and this '
+                'progress is saved on your device even if you close the app.',
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Tips',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                '- Use small, careful drags in tight corridors.\n'
+                '- If the ball gets stuck against a wall, drag slightly away from the wall '
+                'before continuing.\n'
+                '- Try lower levels first to get used to the controls.',
               ),
             ],
           ),
